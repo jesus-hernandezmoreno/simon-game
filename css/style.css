@@ -1,0 +1,239 @@
+@font-face {
+  font-family: "Pricedown";
+  src: url("../fonts/pricedown/pricedown.ttf");
+}
+
+body {
+  background: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.toggle {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#outer-circle {
+  border-radius: 50%;
+  height: 500px;
+  width: 500px;
+  position: relative;
+}
+
+#topleft {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border-radius: 250px 0 0 0;
+  -moz-border-radius: 250px 0 0 0;
+  -webkit-border-radius: 250px 0 0 0;
+  background: darkgreen;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0px 0px -250px;
+  border-style: solid;
+  border-width: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#topright {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border-radius: 0 250px 0 0;
+  -moz-border-radius: 0 250px 0 0;
+  -webkit-border-radius: 0 250px 0 0;
+  background: darkred;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0px 0px 0px;
+  border-style: solid;
+  border-width: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#bottomleft {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border-radius: 0 0 0 250px;
+  -moz-border-radius: 0 0 0 250px;
+  -webkit-border-radius: 0 0 0 250px;
+  background: goldenrod;
+  top: 50%;
+  left: 50%;
+  margin: 0px -250px 0px -250px;
+  border-style: solid;
+  border-width: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#bottomright {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border-radius: 0 0 250px 0;
+  -moz-border-radius: 0 0 250px 0;
+  -webkit-border-radius: 0 0 250px 0;
+  background: darkblue;
+  top: 50%;
+  left: 50%;
+  margin: 0px 0px -250px 0px;
+  border-style: solid;
+  border-width: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* Inner Circle */
+
+#inner-circle {
+  position: absolute;
+  background: black;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  border-style: solid;
+  border-width: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#switches {
+  font-family: "Original Surfer", cursive;
+  color: white;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 41px;
+  margin-bottom: 20px;
+}
+
+.button {
+  float: left;
+  position: relative;
+  top: 0;
+  border-radius: 50% !important;
+  border: none;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  background: #4cd137;
+  box-shadow: 0px 5px #44bd32;
+  padding: 3px 13px;
+  /* so nobody selects the inside text on button */
+  user-select: none;
+  /* Smoothing out hover using css3 transitions, if not, the pressed button effect looks a bit hard */
+  transition: all 0.2s ease;
+}
+
+/* Imitate a pressed effect for buttons */
+.button:active {
+  box-shadow: 0px 0px #717a33;
+  top: 4px;
+}
+
+.button .fa {
+  color: #198a09;
+  font-size: 15px;
+}
+
+#title {
+  font-family: "Pricedown";
+  font-size: 55px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+#turn {
+  background: #330000;
+  color: red;
+  font-family: courier;
+  font-size: 20px;
+  height: 30px;
+  width: 50px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+/* Checkbox */
+
+/* The container */
+.checkbox-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: all 0.2s ease;
+  width: 35px;
+  height: 35px;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  background-color: goldenrod;
+  box-shadow: 0px 5px #947215;
+  border-radius: 50% !important;
+  transition: all 0.2s ease;
+}
+.checkmark .fa {
+  z-index: 1;
+  position: absolute;
+  font-size: 18px;
+  color: #9e7000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* On mouse-over, add a grey background color */
+/* .checkbox-container:hover input ~ .checkmark {
+  background-color: yellow;
+  box-shadow: 0px 0px #717a33;
+  top: 4px;
+} */
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: yellow;
+  box-shadow: 0px 0px #947215;
+  top: 4px;
+}
